@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+{% block page_content %}
+    <head>
+        <!-- META SECTION -->
+        <title>xxx.xxx.xxx.xxx - ꓘamerka</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- END META SECTION -->
+
+        <!-- CSS INCLUDE -->
+
+        <link rel="stylesheet" type="text/css" id="theme" href="static/css/theme-default.css"/>
+        <!-- EOF CSS INCLUDE -->
+    </head>
+    <body>
+        <!-- START PAGE CONTAINER -->
+        <div class="page-container">
+
+            <!-- START PAGE SIDEBAR -->
+            <div class="page-sidebar">
+                <!-- START X-NAVIGATION -->
+                <ul class="x-navigation">
+                    <li class="xn-logo">
+                        <a href="/">ꓘamerka</a>
+                        <a href="#" class="x-navigation-control"></a>
+                    </li>
+                    <li class="xn-profile">
+
+                        <div class="profile">
+                            <div class="profile-image">
+                            </div>
+                            <div class="profile-data">
+                                                               <p><h3 style="color:white;">Wojciech <br><a href="https://github.com/woj-ciech">Github</a> <br> <a href="https://twitter.com/@the_wojciech">Twitter</a></h3> </p>
+
+                            </div>
+
+                        </div>
+                    </li>
+                    <li class="xn-title">Navigation</li>
+                    <li class="">
+                        <a href="dashboard.html"><span class="fa fa-desktop"></span> <span class="xn-text">Dashboard</span></a>
+                    </li>
+                    <li class="">
+                        <a href="history.html"><span class="fa fa-files-o"></span> <span class="xn-text">History</span></a>
+                    </li>
+                    <li class="">
+                        <a href="map.html"><span class="fa fa-map-marker"></span> <span class="xn-text">Map</span></a>
+                    </li>
+                    <li class="">
+                        <a href="devices.html"><span class="fa fa-search"></span> <span class="xn-text">Search</span></a>
+                    </li>
+
+                    <li class="xn-title">Components</li>
+
+                    <li>
+                        <a href="   sources.html"><span class="fa fa-book"></span> <span class="xn-text">Useful links</span></a>
+                    </li>
+
+
+                </ul>
+                <!-- END X-NAVIGATION -->
+            </div>
+            <!-- END PAGE SIDEBAR -->
+
+            <!-- PAGE CONTENT -->
+            <div class="page-content">
+
+                <!-- START X-NAVIGATION VERTICAL -->
+                <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
+                    <!-- TOGGLE NAVIGATION -->
+
+
+                </ul>
+                <!-- START BREADCRUMB -->
+<ul class="breadcrumb">
+
+
+                </ul>
+                <!-- END BREADCRUMB -->
+
+                <!-- PAGE CONTENT WRAPPER -->
+                <div class="page-content-wrap">
+
+                    <!-- START WIDGETS -->
+                 <div class="row">
+                        <div class="col-md-6" style="width:100%">
+                            <!-- START JUSTIFIED TABS -->
+                            <div class="panel panel-default tabs">
+                                <ul class="nav nav-tabs nav-justified">
+                                    <li class="active"><a href="#tab8" data-toggle="tab">Locate</a></li>
+                                    <li><a href="#tab9" data-toggle="tab">Intel</a></li>
+                                    <li><a href="#tab10" data-toggle="tab">Exploit</a></li>
+                                </ul>
+                                <div class="panel-body tab-content">
+                                    <div class="tab-pane active" id="tab8">
+                                        <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">lat,lon - Somewhere
+
+</h3>
+                                </div>
+                                <div class="panel-body panel-body-map">
+                                    <div id="google_world_map" style="width: 100%; height: 400px;"></div>
+
+                                    <form id="form1" runat="server">
+    <div>
+
+        &nbsp; Destination:
+        <input type="text" id="txtDestination" placeholder="Find device" style="width: 300px" />
+        <input type="button" value="Find route" class="btn btn-success active" onclick="GetRoute()" />
+
+
+
+
+
+    </div>                            <!-- END GOOGLE WORLD MAP-->
+                                    </form>
+
+
+                                    </div>
+
+                                </div>
+                                        <div class="panel panel-default">
+
+                                <div class="panel-heading ui-draggable-handle">
+                                    <h3 class="panel-title">Shodan scan for nearby devices</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <input type="text" id="nearby_search" placeholder="device:webcam" style="width: 300px" />
+                                    <button type="button" id="nearby" class="btn btn-danger active">Search</button>
+
+
+
+                                                                    <button type="button" id="show_nearby_devices" class="btn btn-danger active">Show</button>
+
+
+                                    <button type="button" id="add_nearby_devices" class="btn btn-danger active">Add</button>
+                                    <progress id="progress-bar3" value="0" max="100" style="display:block; margin-bottom: 1em;"></progress>
+                                    <div id="nearby_devices_result" style="display:none;"></div>
+
+
+                                </div>
+                            </div>
+
+                                                                                <div class="panel panel-default">
+                                <div class="panel-heading ui-draggable-handle">
+                                    <h3 class="panel-title">Tweets</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <button type="button" id="nearby_twitter" class="btn btn-info active" >Scan</button></a>
+
+                                    <button type="button" id="twitter_show" class="btn btn-info active">Show</button></a>
+
+                                                                        <button type="button" id="markers_twitter" class="btn btn-info active">Add</button>
+
+<progress id="progress-bar4" value="0" max="100" style="display:block; margin-bottom: 1em;"></progress>
+
+<div id="twitter_results"></div>
+                                </div>
+                            </div>
+                                        <div class="panel panel-default">
+                                <div class="panel-heading ui-draggable-handle">
+                                    <h3 class="panel-title">Flickr photos</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <button type="button" id="nearby_flickr" class="btn btn-primary active">Scan</button></a>
+                                                                        <button type="button" id="flickr_show" class="btn btn-primary active">Show</button></a>
+
+                                                                        <button type="button" id="markers_flickr" class="btn btn-primary active">Add</button>
+<progress id="progress-bar" value="0" max="100" style="display:block; margin-bottom: 1em;"></progress>
+
+                                    No. of results:
+                                    <div id="results"></div>
+
+
+                                </div>
+                            </div>
+                                </div>
+
+
+
+<div class="tab-pane" id="tab9">
+    <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">xxx.xxx.xxx.xxx</h3>
+                                </div>
+                                <div class="panel-body"><center>
+                                        <b><br>
+                                        Mitsubishi Q PLC<br>
+                                        mitsubishi<br>
+                                        XXX<br>
+                                        <br>
+                                            </b><br><br>
+                                        CPU: Q04UDVCPU       g         I@      <br>
+</center>
+                                    </div>
+                            </div>
+
+<div class="row">
+                        <div class="col-md-4">
+
+                            <!-- START USERS ACTIVITY BLOCK -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading ui-draggable-handle">
+                                    <div class="panel-title-box">
+                                        <h3><a href="https://shodan.io/host/">Shodan Scan</a>  </h3>
+                                    </div>
+
+                                </div>
+                                <div class="panel-body padding-0">
+                                    <button type="button" id="shodan_scan" class="btn btn-danger active">Scan</button>
+                                                                        <button type="button" id="shodan_show" class="btn btn-danger active">Display</button>
+
+                                    <progress id="progress-bar2" value="0" max="100" style="display:none; margin-bottom: 1em;"></progress>
+                                    <div id="shodan_results" style="display: none;"></div>
+
+                                </div>
+                            </div>
+                            <!-- END USERS ACTIVITY BLOCK -->
+
+                        </div>
+
+    <div class="col-md-4">
+
+                            <!-- START USERS ACTIVITY BLOCK -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading ui-draggable-handle">
+                                    <div class="panel-title-box">
+                                        <h3><a href="https://app.binaryedge.io/services/risk/score?type=ip&query=">Binary Edge</a></h3>
+                                    </div>
+
+                                </div>
+                                <div class="panel-body padding-0">
+                                    <button type="button" id="binaryedge_scan" class="btn btn-warning active">Scan</button>
+                                                                        <button type="button" id="binaryedge_show" class="btn btn-warning active">Display</button>
+                                    <div id="binaryedge_results" class="contact-info" style="display: none;"></div>
+                                    <progress id="progress-bar5" value="0" max="100" style="display:none; margin-bottom: 1em;"></progress>
+
+                                </div>
+                            </div>
+                            <!-- END USERS ACTIVITY BLOCK -->
+
+                        </div>
+
+   <div class="col-md-4">
+
+                            <!-- START USERS ACTIVITY BLOCK -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading ui-draggable-handle">
+                                    <div class="panel-title-box">
+                                        <h3>Whois XML API</h3>
+                                    </div>
+
+                                </div>
+                                <div class="panel-body padding-0">
+                                    <button type="button" id="whois_scan" class="btn btn-info active">Scan</button>
+                                                                        <button type="button" id="whois_show" class="btn btn-info    active">Display</button>
+                                    <div id="whois_results" class="contact-info" style="display: none;"></div>
+                                    <progress id="progress-bar6" value="0" max="100" style="display:none; margin-bottom: 1em;"></progress>
+
+                                </div>
+                            </div>
+                            <!-- END USERS ACTIVITY BLOCK -->
+
+                        </div>
+                        </div>
+
+
+
+
+                                    </div>
+                                        <div class="tab-pane" id="tab10">
+                                            Exploit
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END JUSTIFIED TABS -->
+                            <!-- START GOOGLE WORLD MAP -->
+
+                            </div>
+            </div>
+</div>
+            </div>
+        </div>
+
+
+        <script type="text/javascript" src="static/js/plugins/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="static/js/plugins/jquery/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="static/js/plugins/bootstrap/bootstrap.min.js"></script>
+        <!-- END PLUGINS -->
+
+        <!-- START THIS PAGE PLUGINS-->
+        <script type='text/javascript' src="static/js/plugins/icheck/icheck.min.js"></script>
+        <script type="text/javascript" src="static/js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
+        <script type="text/javascript" src="static/js/plugins/scrolltotop/scrolltopcontrol.js"></script>
+
+        <script type='text/javascript' src="static/js/plugins/bootstrap/bootstrap-datepicker.js"></script>
+        <script type="text/javascript" src="static/js/plugins/owl/owl.carousel.min.js"></script>
+        <script type="text/javascript" src="static/js/plugins/datatables/jquery.dataTables.min.js"></script>
+        <!-- END THIS PAGE PLUGINS-->
+
+
+
+        <!-- START TEMPLATE -->
+
+            <script type='text/javascript' src="static/js/plugins/noty/jquery.noty.js"></script>
+            <script type='text/javascript' src="static/js/plugins/noty/themes/default.js"></script>
+            <script type='text/javascript' src="static/js/plugins/noty/layouts/topRight.js"></script>
+
+            <script type='text/javascript' src='js/plugins/noty/themes/default.js'></script>
+        <script type="text/javascript" src="static/js/settings.js"></script>
+
+        <script type="text/javascript" src="static/js/plugins.js"></script>
+        <script type="text/javascript" src="static/js/actions.js"></script>
+
+        <script type="text/javascript" src="static/js/index_charts.js"></script>
+        <!-- END TEMPLATE -->
+
+
+   <!-- END SCRIPTS -->
+    </body>
+
+</html>
